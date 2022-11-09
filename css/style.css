@@ -3235,7 +3235,13 @@ border:solid 1px #ddd;
 
 	-webkit-box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, .4);
 	-moz-box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, .4);
-	box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, .8);
+	box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, .7);
+}
+@media (max-width: 600px) {
+	.two-button
+		{
+		text-align: center;  
+		}
 }
 .pricing-s1 .top {
 	background: #101010;
