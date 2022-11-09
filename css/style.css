@@ -363,6 +363,10 @@ overflow:visible;
 	float:none !important;
 	}
 	
+	.hreflink
+	{
+		color: #000;
+	}
 	
 	/* subheader */
 	#subheader{
