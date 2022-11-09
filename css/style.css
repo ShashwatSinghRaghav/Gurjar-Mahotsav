@@ -1187,12 +1187,12 @@ footer {
 	}
 	
 	footer a {
-	color: #ccc;
+	color: rgb(0, 0, 0);
 	text-decoration:none !important;
 	}
 	
 	footer a:visited {
-	color: #ccc;
+	color: rgb(0, 0, 0);
 	}
 	
 	footer.light{
