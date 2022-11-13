@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="./css/Flickity.css" media="screen">
 
     <!-- CSS Files
     ================================================== -->
@@ -164,133 +165,22 @@
           class="no-top no-bottom"
           aria-label="section"
         >
-          <div
-            id="gallery"
-            class="gallery zoom-gallery full-gallery de-gallery pf_full_width wow fadeInUp"
-            data-wow-delay=".3s"
-          >
-            <!-- gallery item -->
-            <div class="item residential">
-              <div class="picframe">
-                <a href="images/portfolio/1.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/1.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
+       
+        <div class="main-gallery js-flickity"
+        data-flickity-options='{ "cellAlign": "left", "contain": true }'>
+          <img src="images/portfolio/1.jpg" alt="" class="imagesofgallery" />
+          <img src="images/portfolio/2.jpg" alt="" class="imagesofgallery" />
+          
+          <img src="images/portfolio/3.jpg" alt="" class="imagesofgallery" />
+          <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" />
+          <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" />
+          <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" />
+          <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" />
+          <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" />
+        </div>
 
-            <!-- gallery item -->
-            <div class="item hospitaly">
-              <div class="picframe">
-                <a href="images/portfolio/2.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/2.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
-
-            <!-- gallery item -->
-            <div class="item hospitaly">
-              <div class="picframe">
-                <a href="images/portfolio/3.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/3.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
-
-            <!-- gallery item -->
-            <div class="item residential">
-              <div class="picframe">
-                <a href="images/portfolio/4.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/4.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
-
-            <!-- gallery item -->
-            <div class="item residential">
-              <div class="picframe">
-                <a href="images/portfolio/4.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/4.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
-
-            <!-- gallery item -->
-            <div class="item residential">
-              <div class="picframe">
-                <a href="images/portfolio/4.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/4.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
-
-            <!-- gallery item -->
-            <div class="item residential">
-              <div class="picframe">
-                <a href="images/portfolio/4.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/4.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
-
-            <!-- gallery item -->
-            <div class="item residential">
-              <div class="picframe">
-                <a href="images/portfolio/4.jpg" title="Event Photo">
-                  <span class="overlay">
-                    <span class="pf_text">
-                      <span class="project-name">View Image</span>
-                    </span>
-                  </span>
-                  <img src="images/portfolio/4.jpg" alt="" />
-                </a>
-              </div>
-            </div>
-            <!-- close gallery item -->
-          </div>
         </section>
-        <!-- section close -->
+
              
 
         <!-- footer begin -->
@@ -377,5 +267,6 @@
     <script src="js/designesia.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/countdown-custom.js"></script>
+    <script src="./js/Flickity.js"></script>
   </body>
 </html>
