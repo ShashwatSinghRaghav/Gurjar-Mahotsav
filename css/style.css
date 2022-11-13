@@ -3153,6 +3153,7 @@ border:solid 1px #ddd;
 	.pricing.pricing-box ul {
 	margin: 0;
 	padding: 0;
+	background-image: url(../images/modern-abstract-3d-background-with-black-paper-vector-26454241.png);
 	}
 	
 	.pricing.pricing-box li {
@@ -3236,6 +3237,7 @@ border:solid 1px #ddd;
 	-webkit-box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, .4);
 	-moz-box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, .4);
 	box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, .7);
+	
 }
 @media (max-width: 600px) {
 	.two-button
