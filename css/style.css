@@ -4880,7 +4880,20 @@ font-size: 14px;
 }
 
 #gallery .item{
-overflow:hidden;
+/* overflow:hidden; */
+display: flex;
+flex-direction: column;
+}
+
+.portfolioimages{
+	display: flex;
+	overflow: scroll;
+	gap: 20px;
+}
+
+.imagesofgallery{
+	height: auto;
+	width: 100%;
 }
 
 .picframe .overlay-v{
@@ -5183,8 +5196,6 @@ width:100%;
   width:100%;
 }
 
-	margin:5px;
-}
 
 /* clear fix */
 .grid:after {
@@ -6513,6 +6524,8 @@ transition:.5s;
 	font-weight:500;
 }
 
+
+
 .ps1-deco{
 	height:4px;
 	background:#ffffff;
@@ -7710,5 +7723,6 @@ display:table;
 	
 	.grid-item .pf_title{
 		display:none;
+	}
 	}
 	}
