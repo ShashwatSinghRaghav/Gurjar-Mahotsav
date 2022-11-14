@@ -2971,6 +2971,10 @@ span.teaser {
   margin-left: 100px;
 }
 
+.box-number .text-temp {
+  margin-left: 0px;
+}
+
 .box-icon .icon {
   display: block;
   font-size: 48px;
