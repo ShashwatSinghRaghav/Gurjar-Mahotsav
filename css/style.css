@@ -2078,6 +2078,22 @@ a.btn-line.black:hover:after {
   color: #ffffff;
 }
 
+.custom-p {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  line-height: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  padding-top: 15px;
+  text-align: center;
+  padding-bottom: 15px;
+  display: inline-block;
+  margin-top: 10px;
+  border-radius: 0.25rem;
+}
+
 .de_light a.btn-line-black:hover {
   background: #111;
   color: #fff;
@@ -6589,12 +6605,12 @@ section.no-padding {
   width: 100%;
 }
 
-.de-images img {
+/* .de-images img {
   border-radius: 5px;
   -webkit-box-shadow: 2px 20px 30px 0px rgba(20, 20, 20, 0.2);
   -moz-box-shadow: 2px 20px 30px 0px rgba(20, 20, 20, 0.2);
   box-shadow: 2px 20px 30px 0px rgba(20, 20, 20, 0.2);
-}
+} */
 .de-images img:hover {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
