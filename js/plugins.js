@@ -5205,60 +5205,7 @@
       document.cookie = "jpreLoader=loaded; " + c;
     }
   };
-  var i = function () {
-    jOverlay = a("<div></div>")
-      .attr("id", "jpreOverlay")
-      .css({
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        zIndex: 9999999,
-      })
-      .appendTo("body");
-    if (f.showSplash) {
-      jContent = a("<div></div>").attr("id", "jpreSlide").appendTo(jOverlay);
-      var b = a(window).width() - a(jContent).width();
-      a(jContent).css({
-        position: "absolute",
-        top: f.splashVPos,
-        left: Math.round((50 / a(window).width()) * b) + "%",
-      });
-      a(jContent).html(a(f.splashID).wrap("<div/>").parent().html());
-      a(f.splashID).remove();
-      f.splashFunction();
-    }
-    jLoader = a("<div></div>").attr("id", "jpreLoader").appendTo(jOverlay);
-    var c = a(window).width() - a(jLoader).width();
-    a(jLoader).css({
-      position: "absolute",
-      top: f.loaderVPos,
-      left: Math.round((50 / a(window).width()) * c) + "%",
-    });
-    jBar = a("<div></div>")
-      .attr("id", "jpreBar")
-      .css({ width: "0%", height: "100%" })
-      .appendTo(jLoader);
-    if (f.showPercentage) {
-      jPer = a("<div></div>")
-        .attr("id", "jprePercentage")
-        .css({ position: "relative", height: "100%" })
-        .appendTo(jLoader)
-        .html("Loading...");
-    }
-    if (!f.autoclose) {
-      jButton = a("<div></div>")
-        .attr("id", "jpreButton")
-        .on("click", function () {
-          n();
-        })
-        .css({ position: "relative", height: "100%" })
-        .appendTo(jLoader)
-        .text(f.closeBtnText)
-        .hide();
-    }
-  };
+  var i = function () {};
   var j = function (c) {
     a(c)
       .find("*:not(script)")

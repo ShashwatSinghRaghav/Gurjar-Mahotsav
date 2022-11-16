@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="images/logo.png" type="image/gif" sizes="16x16" />
-    <title>Gallery</title>
+    <title>Contact Us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -134,7 +134,7 @@
                   <a href="exhibitor.html">Exhibitor<span></span></a>
                 </li>
                 <li>
-                  <a href="contact.html">Contact Us<span></span></a>
+                  <a href="#">Contact Us<span></span></a>
                 </li>
               </ul>
 
@@ -146,49 +146,61 @@
       <!-- header close -->
 
 
+        
+
         <!-- section begin -->
-        <section id="section-features">
-          <div class="wm wm-border dark wow fadeInDown">Gallery</div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
-                <h1>Gallery</h1>
-                <div class="separator">
-                  <span><i class="fa fa-square"></i></span>
+        <section id="section-register" style="background-size: cover;">
+                <div class="wm wm-border dark wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; background-size: cover;">Contact</div>
+				<div class="container" style="background-size: cover;">
+                    <div class="row" style="background-size: cover;">
+						<div class="col-md-6 offset-md-3 text-center wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; background-size: cover;">
+                            <h1>Contact Us</h1>
+                            <div class="separator" style="background-size: cover;"><span><i class="fa fa-square"></i></span></div>
+                            <div class="spacer-single" style="background-size: cover;"></div>
+                        </div>
+
+                        <div class="col-md-8 offset-md-2 wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; background-size: cover;">
+                            <form name="contactForm" id="contact_form" method="post" action="email.php">
+                                <div class="row" style="background-size: cover;">
+                                    <div class="col-md-6" style="background-size: cover;">
+                                        <div id="name_error" class="error" style="background-size: cover;">Please enter your name.</div>
+                                        <div style="background-size: cover;">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
+                                        </div>
+
+                                        <div id="email_error" class="error" style="background-size: cover;">Please enter your valid E-mail ID.</div>
+                                        <div style="background-size: cover;">
+                                            <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
+                                        </div>
+
+                                        <div id="phone_error" class="error" style="background-size: cover;">Please enter your phone number.</div>
+                                        <div style="background-size: cover;">
+                                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="background-size: cover;">
+                                        <div id="message_error" class="error" style="background-size: cover;">Please enter your message.</div>
+                                        <div style="background-size: cover;">
+                                            <textarea name="message" id="message" class="form-control" placeholder="Additional Message" data-gramm="false" wt-ignore-input="true" data-quillbot-element="wcxz95o6zUDfDs4cdWjd7"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 text-center" style="background-size: cover;">
+                                        <p id="submit">
+                                            <input type="submit" id="send_message" value="CONTACT US" class="btn btn-line">
+                                        </p>
+                                        <div id="mail_success" class="success" style="background-size: cover;">Your message has been sent successfully.</div>
+                                        <div id="mail_fail" class="error" style="background-size: cover;">Sorry, error occured this time sending your message.</div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
                 </div>
-                <div class="spacer-single"></div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <!-- section begin -->
-        <section
-          id="section-portfolio"
-          class="no-top no-bottom"
-          aria-label="section"
-        >
-       
-        <div class="main-gallery js-flickity"
-        data-flickity-options='{ "cellAlign": "left", "contain": true }'>
-        <div class="imageContainer"> <img src="images/portfolio/1.jpg" alt="" class="imagesofgallery" /></div>
-         
-         <div class="imageContainer"><img src="images/portfolio/2.jpg" alt="" class="imagesofgallery" /></div> 
-         <div class="imageContainer"><img src="images/portfolio/3.jpg" alt="" class="imagesofgallery" /></div>   
-         <div class="imageContainer"> <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" /></div>
-         <div class="imageContainer">  <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" /></div>
-         <div class="imageContainer"> <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" /></div>
-         <div class="imageContainer"> <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" /></div>
-         <div class="imageContainer"> <img src="images/portfolio/4.jpg" alt="" class="imagesofgallery" /></div>
-         
-          
-        </div>
-
-
-        
-        </section>
-
-        
+            </section>
 
              
 
@@ -254,7 +266,11 @@
                 </div>
               </div>
 
-                <div class="text-right">
+             
+
+              
+
+              <div class="text-right">
                 
               </div>
             </div>
