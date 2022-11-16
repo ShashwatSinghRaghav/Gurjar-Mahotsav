@@ -5021,7 +5021,7 @@ a:hover,
   width: 50%;
 }
 
-.imageContainer{
+.imageContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8113,6 +8113,11 @@ i.btn-action-hide {
       width: 100% !important;
     }
 
+    .imageContainer img {
+      height: auto;
+      width: 100%;
+    }
+
     /*.item{
 	font-size:32px;
 	line-height:32px;
@@ -8127,5 +8132,3 @@ i.btn-action-hide {
     }
   }
 }
-
-
