@@ -54,3 +54,24 @@
  * enables imagesLoaded option for Flickity
  */
 (function(i,n){if(typeof define=="function"&&define.amd){define(["flickity/js/index","imagesloaded/imagesloaded"],function(t,e){return n(i,t,e)})}else if(typeof module=="object"&&module.exports){module.exports=n(i,require("flickity"),require("imagesloaded"))}else{i.Flickity=n(i,i.Flickity,i.imagesLoaded)}})(window,function t(e,i,s){"use strict";i.createMethods.push("_createImagesLoaded");var n=i.prototype;n._createImagesLoaded=function(){this.on("activate",this.imagesLoaded)};n.imagesLoaded=function(){if(!this.options.imagesLoaded){return}var n=this;function t(t,e){var i=n.getParentCell(e.img);n.cellSizeChange(i&&i.element);if(!n.options.freeScroll){n.positionSliderAtSelected()}}s(this.slider).on("progress",t)};return i});
+
+var cellRatio = 0.6; // outerWidth of cell / width of carousel
+var bgRatio = 0.8; // width of background layer / width of carousel
+var fgRatio = 1.25; // width of foreground layer / width of carousel
+
+$carousel.on( 'scroll.flickity', function( event, progress ) {
+  moveParallaxLayer( $background, bgRatio, progress );
+  moveParallaxLayer( $foreground, fgRatio, progress );
+});
+// trigger initial scroll
+$carousel.flickity('reposition');
+
+var flkty = $carousel.data('flickity');
+var count = flkty.slides.length - 1;
+
+function moveParallaxLayer( $layer, layerRatio, progress ) {
+  var ratio = cellRatio * layerRatio;
+  $layer.css({
+    left: ( 0.5 - ( 0.5 + progress * count ) * ratio ) * 100 + '%'
+  });
+}
