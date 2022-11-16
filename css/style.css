@@ -5021,6 +5021,13 @@ a:hover,
   width: 50%;
 }
 
+.imageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
 .picframe .overlay-v {
   text-align: center;
   width: 100px;
@@ -8120,3 +8127,5 @@ i.btn-action-hide {
     }
   }
 }
+
+
