@@ -8118,6 +8118,10 @@ i.btn-action-hide {
       width: 100%;
     }
 
+    .de-images iframe {
+      width: 100%;
+    }
+
     /*.item{
 	font-size:32px;
 	line-height:32px;
