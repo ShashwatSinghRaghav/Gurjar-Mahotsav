@@ -1918,8 +1918,8 @@ a.btn-line {
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  padding: 3px;
-  padding-left: 30px;
+  padding: 15px;
+  padding-left: 50px;
   padding-right: 50px;
   text-transform: uppercase;
   display: inline-block;
@@ -2017,13 +2017,6 @@ a.btn-big:after {
 .btn-line,
 a.btn-line {
   color: #eceff3;
-}
-
-.btn-line:after,
-a.btn-line:after {
-  font-family: FontAwesome;
-  content: "\f054";
-  margin-left: 10px;
 }
 
 a.btn-line-black,
