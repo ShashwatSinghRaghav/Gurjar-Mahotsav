@@ -3133,6 +3133,23 @@ span.teaser {
   width: 19%;
 }
 
+.tourch {
+  width: 205px;
+  height: 80px;
+  padding: 10px;
+  position: top left;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.knot {
+  width: 185px;
+  height: 80px;
+  padding: 10px;
+  position: top left;
+  margin-right: 20px;
+  border-radius: 5px;
+}
 .pricing-2-col,
 .pricing-3-col,
 .pricing-4-col,
@@ -8106,6 +8123,23 @@ i.btn-action-hide {
       width: 100% !important;
     }
 
+    .tourch {
+      width: 250px;
+      height: 80px;
+      padding: 10px;
+      position: top left;
+      margin-right: 20px;
+      border-radius: 5px;
+    }
+
+    .knot {
+      width: 215px;
+      height: 80px;
+      padding: 10px;
+      position: top left;
+      margin-right: 20px;
+      border-radius: 5px;
+    }
     .imageContainer img {
       height: auto;
       width: 100%;
