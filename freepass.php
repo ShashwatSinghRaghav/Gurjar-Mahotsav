@@ -36,19 +36,13 @@ $color = imagecolorallocate($image, 255,255,255);
 $gate="GATE  : 4A";
 $gate_row="ROW  : 02";
 
-imagettftext($image,30,0,1020,250,$color,$font,$gate);
-imagettftext($image,30,0,1020,300,$color,$font,$gate_row);
+imagettftext($image,30,0,1020,200,$color,$font,$gate);
+imagettftext($image,30,0,1020,250,$color,$font,$gate_row);
 imagettftext($image,20,0,1015,350,$color,$font,$temp);
 
 // This will tell the browser to download it
 header('Content-Disposition: attachment; filename=FreePass.jpg'); 
-
+imagejpeg($image);
 imagedestroy($image);
-
-// if($rs)
-// {
-// 	header('Location: https://www.gurjarmahotsav.com/');
-// 	exit;
-// }
 
 ?>
