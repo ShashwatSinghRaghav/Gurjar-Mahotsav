@@ -18,7 +18,7 @@ $rs = mysqli_query($con, $sql);
 
 if($rs)
 {
-	echo "Contact Records Inserted";
+	header('Location: /index.html');
 }
 
 ?>
