@@ -1,7 +1,7 @@
 <?php
 $redirect = 0;
-if(isset($_POST['submit'])){ 
-	$redirect = 1;
+if(isset($_POST['submit'])){
+    $redirect = 1;
 
     $con = mysqli_connect('localhost', 'gurj17_root', 'History@1857','gurj17_database');
 	// get the post records
@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
 
 	$sql = "INSERT INTO `user` (`fname`,`lname`, `email`, `phone`) VALUES ('$fname','$lname', '$email', '$phone')";
 
-	// insert in database 
+	// insert in database
 	$rs = mysqli_query($con, $sql);
 
 	$idselect = "SELECT id from `user` WHERE `fname` = '$fname' and `lname` = '$lname' and `email` = '$email'";
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 	while ($row = $result->fetch_assoc()) {
 		 $temp = $row['id'];
 	}
-	
+
 	if($redirect == 1){
 		header("Location: thankyou.php?PassID=".base64_encode($temp));
 	}
@@ -157,7 +157,7 @@ if(isset($_POST['submit'])){
 
                 <li>
                   <a href="donate.html">Donate<span></span></a>
-                </li>               
+                </li>
                 <li>
                   <a href="gallary.html">Gallery<span></span></a>
                 </li>
@@ -180,7 +180,7 @@ if(isset($_POST['submit'])){
       <!-- header close -->
 
 
-        
+
 
         <!-- section begin -->
         <section id="section-register" style="background-size: cover;">
@@ -197,30 +197,30 @@ if(isset($_POST['submit'])){
                             <form name="contact_form" id="contact_form"  method="POST" action="freepass.php">
                                 <div class="row">
                                     <div class="">
-                    
+
                                         <div style="background-size: cover;">
                                             <input type="text" name="fname" id="fname" class="form-control" placeholder="Your First Name">
                                         </div>
-                                        
+
                                         <div style="background-size: cover;">
                                             <input type="text" name="lname" id="lname" class="form-control" placeholder="Your Last Name">
                                         </div>
 
-                    
+
                                         <div style="background-size: cover;">
                                             <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
                                         </div>
 
-                                        
+
                                         <div style="background-size: cover;">
                                             <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="col-md-12 text-center" style="background-size: cover;">
                                       <input type="submit" name="submit" class="btn btn-line" value="Get Pass">
-                                    
+
                                     </div>
 									 <span class="output_message"></span>
                                 </div>
@@ -233,7 +233,7 @@ if(isset($_POST['submit'])){
 
         </section>
 
-             
+
 
         <!-- footer begin -->
         <footer class="style-2">
@@ -269,7 +269,7 @@ if(isset($_POST['submit'])){
                   >
                 </div>
               </div>
-              
+
               <div class="img-footer">
                 <div class="h6 padding10 pt0 pb0">
                   <div class="social-icons">
@@ -297,12 +297,12 @@ if(isset($_POST['submit'])){
                 </div>
               </div>
 
-             
 
-              
+
+
 
               <div class="text-right">
-                
+
               </div>
             </div>
           </div>
@@ -338,10 +338,10 @@ if(isset($_POST['submit'])){
 	<script>
 	/**	$(document).ready(function() {
 			$('#contact_form').on('submit',function(){
-				 
-				// Add text 'loading...' right after clicking on the submit button. 
-				$('.output_message').text('Loading...'); 
-				 
+
+				// Add text 'loading...' right after clicking on the submit button.
+				$('.output_message').text('Loading...');
+
 				var form = $(this);
 				$.ajax({
 					url: form.attr('action'),
@@ -350,7 +350,7 @@ if(isset($_POST['submit'])){
 					success: function(data){
 						 //Convert the Byte Data to BLOB object.
                     var blob = new Blob([data], { type: "application/octetstream" });
- 
+
                     //Check the Browser type and download the File.
                     var isIE = false || !!document.documentMode;
                     if (isIE) {
@@ -367,9 +367,9 @@ if(isset($_POST['submit'])){
                     }
 					}
 				});
-				 
-				// Prevents default submission of the form after clicking on the submit button. 
-				return false;   
+
+				// Prevents default submission of the form after clicking on the submit button.
+				return false;
 			});
 		});***/
 	</script>
