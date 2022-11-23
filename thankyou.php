@@ -1,9 +1,9 @@
 <?php if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
 	$PassID = base64_decode($_GET['PassID']);
 	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "freepass";
+	$username = "gurj17_root";
+	$password = "History@1857";
+	$dbname = "gurj17_database";
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	// Check connection
@@ -53,7 +53,19 @@
 	} else {
 	  //echo "0 results";
 	}
- mysqli_close($conn);}?>
+ mysqli_close($conn);}
+
+//  $folder = 'pass';
+//  $files = glob($folder. '/*');
+
+//  foreach( $files as $file)
+//  {
+//   if(is_file($file)){
+//     unlink($file);
+//   }
+//  }
+
+ ?>
 
 <html lang="en">
   <head>

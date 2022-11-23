@@ -3,7 +3,7 @@ $redirect = 0;
 if(isset($_POST['submit'])){ 
 	$redirect = 1;
 
-    $con = mysqli_connect('localhost', 'root', '','freepass');
+    $con = mysqli_connect('localhost', 'gurj17_root', 'History@1857','freepass');
 	// get the post records
 	$fname = $_POST['fname'];
 	$lname = $_POST['lname'];
