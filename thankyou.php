@@ -1,8 +1,65 @@
+<?php if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
+	$PassID = base64_decode($_GET['PassID']);
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "freepass";
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	// Check connection
+	if (!$conn) {
+	  die("Connection failed: " . mysqli_connect_error());
+	}
+	$sql = "Select * from `user` where id=$PassID";
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+	  // output data of each row
+	  while($row = mysqli_fetch_assoc($result)) {
+		$temp = "ID  : GM2022-".$row['id'];
+	  }
+	  	//header('content-type: image/jpeg');
+		//$font="http://localhost/Gurjar-Mahotsav-main/CALIBRIB.TTF";
+		function isLocalhost($whitelist = ['127.0.0.1', '::1']) {
+			return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
+		}
+		if (isLocalhost())
+			$font = "CALIBRIB.TTF";	
+		else
+			$font = "/home2/dhuntonq/example.com/Gurjar-Mahotsav-main\\CALIBRIB.TTF";
+
+
+		//header('Content-Type: image/png');
+
+		$image = imagecreatefromjpeg("entrypass.jpg");
+		$color = imagecolorallocate($image, 255,255,255);
+		$gate="GATE  : 4A";
+		$gate_row="ROW  : 02";
+		$file="FreePass.jpg"; 
+
+		imagettftext($image,30,0,1020,200,$color,$font,$gate);
+		imagettftext($image,30,0,1020,250,$color,$font,$gate_row);
+		imagettftext($image,20,0,1015,350,$color,$font,$temp);
+
+		// This will tell the browser to download it
+		//header('Content-Disposition: attachment; filename='.$file); 
+		//imagejpeg($image,);
+		 $newFileName = 'Pass'.$_GET['PassID'].'.jpg';
+		 imagejpeg($image,'pass/'.$newFileName);//save image
+
+          //$Newimage =  imagejpeg($image);
+		  imagedestroy($image);
+		  //echo $Newimage;
+		//exit;
+	} else {
+	  //echo "0 results";
+	}
+ mysqli_close($conn);}?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="images/logo.png" type="image/gif" sizes="16x16" />
-    <title>Free Pass</title>
+    <title>Thankyou</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -12,7 +69,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./css/Flickity.css" media="screen">
 
     <!-- CSS Files
     ================================================== -->
@@ -145,59 +201,32 @@
       <!-- header close -->
 
 
-        
-
         <!-- section begin -->
-        <section id="section-register" style="background-size: cover;">
-                <div class="wm wm-border dark wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; background-size: cover;">Pass</div>
-				<div class="container" style="background-size: cover;">
-                    <div class="row" style="background-size: cover;">
-						<div class="col-md-6 offset-md-3 text-center wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; background-size: cover;">
-                            <h1>Get Your Free Pass</h1>
-                            <div class="separator" style="background-size: cover;"><span><i class="fa fa-square"></i></span></div>
-                            <div class="spacer-single" style="background-size: cover;"></div>
-                        </div>
-
-                        <div class="col-md-8 offset-md-2 wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; background-size: cover;">
-                            <form name="contactForm" id="contact_form"  method="POST" action="freepass.php">
-                                <div class="row">
-                                    <div class="">
+        <section id="section-features">
                     
-                                        <div style="background-size: cover;">
-                                            <input type="text" name="fname" id="name" class="form-control" placeholder="Your First Name">
-                                        </div>
-                                        
-                                        <div style="background-size: cover;">
-                                            <input type="text" name="lname" id="name" class="form-control" placeholder="Your Last Name">
-                                        </div>
-
-                    
-                                        <div style="background-size: cover;">
-                                            <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
-                                        </div>
-
-                                        
-                                        <div style="background-size: cover;">
-                                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
-                                        </div>
-                                    </div>
-
-                                    
-                                    <div class="col-md-12 text-center" style="background-size: cover;">
-                                      <input type="submit" class="btn btn-line" value="Get Pass">
-                                    
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-
-                    </div>
-                </div>
-
+          <!-- section begin -->
+        <section id="section-ticket" class="jarallax text-light">
+          <div class="wm wm-border dark wow fadeInDown">Thankyou</div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
+                <h1>Thankyou! We will get back to <br/>You as Soon as possible!</h1>
+                <div class="spacer-single"></div>
+              
+          </div>
+          <?php 
+		  if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
+			echo '<a id="forceDownload" href="pass/'.$newFileName.'" download target="_blank"><img style="width: 100%;" src="pass/'.$newFileName.'"  /></a>';
+			echo '<a href="pass/'.$newFileName.'" download  target="_blank" style="font-size:26px;text-align:center;margin-top:50px"><u>Downlaod</u></a>';
+		  }	
+		  ?>
+		  
+        </section>
         </section>
 
-             
+        
+        
+
 
         <!-- footer begin -->
         <footer class="style-2">
@@ -283,6 +312,10 @@
     <script src="js/designesia.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/countdown-custom.js"></script>
-    <script src="./js/Flickity.js"></script>
+	<script>
+		$( document ).ready(function() {
+			$('#forceDownload').trigger('click');
+		})
+	</script>
   </body>
 </html>
