@@ -208,7 +208,7 @@ if(isset($_POST['submit'])){
 
 
                                         <div style="background-size: cover;">
-                                            <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
                                         </div>
 
 
