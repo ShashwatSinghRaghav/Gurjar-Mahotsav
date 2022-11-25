@@ -1,47 +1,47 @@
-<?php if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
-	$PassID = base64_decode($_GET['PassID']);
-	$servername = "localhost";
-	$username = "gurj17_root";
-	$password = "History@1857";
-	$dbname = "gurj17_database";
-	// Create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	// Check connection
-	if (!$conn) {
-	  die("Connection failed: " . mysqli_connect_error());
-	}
-	$sql = "Select * from `user` where id=$PassID";
+<?php
+if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
+    $PassID = base64_decode($_GET['PassID']);
+    $servername = "localhost";
+    $username = "gurj17_root";
+    $password = "History@1857";
+    $dbname = "gurj17_database";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+	$sql = "Select * from `donation` where id=$PassID";
 	$result = mysqli_query($conn, $sql);
 	if (mysqli_num_rows($result) > 0) {
 	  // output data of each row
 	  while($row = mysqli_fetch_assoc($result)) {
-		$temp = "ID  : GM2022-".$row['id'];
+		$temp = $row['name'];
 	  }
+#      print_r($temp);
+
 	  	//header('content-type: image/jpeg');
 		//$font="http://localhost/Gurjar-Mahotsav-main/CALIBRIB.TTF";
 		function isLocalhost($whitelist = ['127.0.0.1', '::1']) {
 			return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
 		}
 		if (isLocalhost())
-			$font = "C:\\xampp\\htdocs\\Gurjar-Mahotsav-main\\CALIBRIB.TTF";	
+			$font =  "PinyonScript-Regular.ttf";
 		else
-			$font = "/home2/dhuntonq/example.com/Gurjar-Mahotsav-main\\CALIBRIB.TTF";
+			$font =  realpath("PinyonScript-Regular.ttf");
 
 
 		//header('Content-Type: image/png');
 
-		$image = imagecreatefromjpeg("entrypass.jpg");
-		$color = imagecolorallocate($image, 255,255,255);
-		$gate="GATE  : 4A";
-		$gate_row="ROW  : 02";
-		$file="FreePass.jpg"; 
+		$image = imagecreatefromjpeg("donation_certificate.jpg");
+		$color = imagecolorallocate($image, 188,157,67);
 
-		imagettftext($image,30,0,1020,200,$color,$font,$gate);
-		imagettftext($image,30,0,1020,250,$color,$font,$gate_row);
-		imagettftext($image,20,0,1015,350,$color,$font,$temp);
+		//$file="FreePass.jpg";
+
+		imagettftext($image,50,0,475,430,$color,$font,$temp);
 
 		// This will tell the browser to download it
-		//header('Content-Disposition: attachment; filename='.$file); 
+		//header('Content-Disposition: attachment; filename='.$file);
 		//imagejpeg($image,);
 		 $newFileName = 'Pass'.$_GET['PassID'].'.jpg';
 		 imagejpeg($image,'pass/'.$newFileName);//save image
@@ -53,7 +53,19 @@
 	} else {
 	  //echo "0 results";
 	}
- mysqli_close($conn);}?>
+ mysqli_close($conn);}
+
+//  $folder = 'pass';
+//  $files = glob($folder. '/*');
+
+//  foreach( $files as $file)
+//  {
+//   if(is_file($file)){
+//     unlink($file);
+//   }
+//  }
+
+ ?>
 
 <html lang="en">
   <head>
@@ -178,7 +190,7 @@
 
                 <li>
                   <a href="donate.html">Donate<span></span></a>
-                </li>               
+                </li>
                 <li>
                   <a href="gallary.html">Gallery<span></span></a>
                 </li>
@@ -203,29 +215,29 @@
 
         <!-- section begin -->
         <section id="section-features">
-                    
+
           <!-- section begin -->
         <section id="section-ticket" class="jarallax text-light">
           <div class="wm wm-border dark wow fadeInDown">Thankyou</div>
           <div class="container">
             <div class="row">
               <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
-                <h1>Thankyou! We will get back to <br/>You as Soon as possible!</h1>
+                <h1>Thankyou!<br/>For Your Donation!</h1>
                 <div class="spacer-single"></div>
-              
+
           </div>
-          <?php 
+          <?php
 		  if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
-			echo '<a id="forceDownload" href="pass/'.$newFileName.'" download target="_blank"><img src="pass/'.$newFileName.'"  /></a>';
-			echo '<a href="pass/'.$newFileName.'" download  target="_blank" style="font-size:30px;text-align:center;margin-top:50px">DownLaod </a>';
-		  }	
+			echo '<a id="forceDownload" href="pass/'.$newFileName.'" download target="_blank"><img style="width: 100%;" src="pass/'.$newFileName.'"  /></a>';
+			echo '<a href="pass/'.$newFileName.'" download  target="_blank" style="font-size:26px;text-align:center;margin-top:50px"><u>Downlaod</u></a>';
+		  }
 		  ?>
-		  
+
         </section>
         </section>
 
-        
-        
+
+
 
 
         <!-- footer begin -->
@@ -262,7 +274,7 @@
                   >
                 </div>
               </div>
-              
+
               <div class="img-footer">
                 <div class="h6 padding10 pt0 pb0">
                   <div class="social-icons">
@@ -290,12 +302,12 @@
                 </div>
               </div>
 
-             
 
-              
+
+
 
               <div class="text-right">
-                
+
               </div>
             </div>
           </div>

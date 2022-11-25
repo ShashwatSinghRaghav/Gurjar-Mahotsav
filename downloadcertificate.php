@@ -1,65 +1,44 @@
-<?php if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
-	$PassID = base64_decode($_GET['PassID']);
-	$servername = "localhost";
-	$username = "gurj17_root";
-	$password = "History@1857";
-	$dbname = "gurj17_database";
-	// Create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	// Check connection
-	if (!$conn) {
-	  die("Connection failed: " . mysqli_connect_error());
+<?php
+$redirect = 0;
+if(isset($_POST['submit'])){
+    $redirect = 1;
+
+    $con = mysqli_connect('localhost', 'gurj17_root', 'History@1857','gurj17_database');
+	// get the post records
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$phone = $_POST['phone'];
+  $city = $_POST['city'];
+
+	//echo 'hi';die;
+
+	// database insert SQL code
+
+	$sql = "INSERT INTO `donation` (`name`,`email`, `phone`, `city`) VALUES ('$name','$email', '$phone', '$city')";
+
+	// insert in database
+	$rs = mysqli_query($con, $sql);
+
+	$idselect = "SELECT id from `donation` WHERE `name` = '$name' and `email` = '$email' and `phone` = '$phone'and `city` = '$city'";
+
+	$result = mysqli_query($con, $idselect);
+
+	$temp = 0;
+
+	while ($row = $result->fetch_assoc()) {
+		 $temp = $row['id'];
 	}
-	$sql = "Select * from `user` where id=$PassID";
-	$result = mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) > 0) {
-	  // output data of each row
-	  while($row = mysqli_fetch_assoc($result)) {
-		$temp = "ID  : GM2022-".$row['id'];
-	  }
-	  	//header('content-type: image/jpeg');
-		//$font="http://localhost/Gurjar-Mahotsav-main/CALIBRIB.TTF";
-		function isLocalhost($whitelist = ['127.0.0.1', '::1']) {
-			return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
-		}
-		if (isLocalhost())
-			$font = "C:\\xampp\\htdocs\\Gurjar-Mahotsav-main\\CALIBRIB.TTF";	
-		else
-			$font = "/home2/dhuntonq/example.com/Gurjar-Mahotsav-main\\CALIBRIB.TTF";
 
-
-		//header('Content-Type: image/png');
-
-		$image = imagecreatefromjpeg("entrypass.jpg");
-		$color = imagecolorallocate($image, 255,255,255);
-		$gate="GATE  : 4A";
-		$gate_row="ROW  : 02";
-		$file="FreePass.jpg"; 
-
-		imagettftext($image,30,0,1020,200,$color,$font,$gate);
-		imagettftext($image,30,0,1020,250,$color,$font,$gate_row);
-		imagettftext($image,20,0,1015,350,$color,$font,$temp);
-
-		// This will tell the browser to download it
-		//header('Content-Disposition: attachment; filename='.$file); 
-		//imagejpeg($image,);
-		 $newFileName = 'Pass'.$_GET['PassID'].'.jpg';
-		 imagejpeg($image,'pass/'.$newFileName);//save image
-
-          //$Newimage =  imagejpeg($image);
-		  imagedestroy($image);
-		  //echo $Newimage;
-		//exit;
-	} else {
-	  //echo "0 results";
+	if($redirect == 1){
+		header("Location: certificatedownload.php?PassID=".base64_encode($temp));
 	}
- mysqli_close($conn);}?>
-
+}
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="images/logo.png" type="image/gif" sizes="16x16" />
-    <title>Thankyou</title>
+    <title>Download Certificate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -69,6 +48,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="./css/Flickity.css" media="screen">
 
     <!-- CSS Files
     ================================================== -->
@@ -178,7 +158,7 @@
 
                 <li>
                   <a href="donate.html">Donate<span></span></a>
-                </li>               
+                </li>
                 <li>
                   <a href="gallary.html">Gallery<span></span></a>
                 </li>
@@ -201,38 +181,66 @@
       <!-- header close -->
 
 
+
+
         <!-- section begin -->
-        <section id="section-features">
-                    
-          <!-- section begin -->
-        <section id="section-ticket" class="jarallax text-light">
-          <div class="wm wm-border dark wow fadeInDown">Thankyou</div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
-                <h1>Thankyou! We will get back to <br/>You as Soon as possible!</h1>
-                <div class="spacer-single"></div>
-              
-          </div>
-          <?php 
-		  if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
-			echo '<a id="forceDownload" href="pass/'.$newFileName.'" download target="_blank"><img src="pass/'.$newFileName.'"  /></a>';
-			echo '<a href="pass/'.$newFileName.'" download  target="_blank" style="font-size:30px;text-align:center;margin-top:50px">DownLaod </a>';
-		  }	
-		  ?>
-		  
-        </section>
+        <section id="section-register" style="background-size: cover;">
+                <div class="wm wm-border dark wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown; background-size: cover;">THANKYOU</div>
+				<div class="container" style="background-size: cover;">
+                    <div class="row" style="background-size: cover;">
+						<div class="col-md-6 offset-md-3 text-center wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; background-size: cover;">
+                            <h1>Thank You For Your Donation</h1>
+                            <h3 style = "padding-top: 10px;">To Download Your Certificate, Kindly Complete The Form</h3>
+                            <div class="separator" style="background-size: cover;"><span><i class="fa fa-square"></i></span></div>
+                            <div class="spacer-single" style="background-size: cover;"></div>
+                        </div>
+
+                        <div class="col-md-8 offset-md-2 wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; background-size: cover;">
+                            <form name="contact_form" id="contact_form"  method="POST" action="downloadcertificate.php">
+                                <div class="row">
+                                    <div class="">
+
+                                        <div style="background-size: cover;">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Full Name">
+                                        </div>
+
+                                        <div style="background-size: cover;">
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                        </div>
+
+
+                                        <div style="background-size: cover;">
+                                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
+                                        </div>
+                                        
+                                        <div style="background-size: cover;">
+                                            <input type="text" name="city" id="city" class="form-control" placeholder="Your City">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12 text-center" style="background-size: cover;">
+                                      <input type="submit" name="submit" class="btn btn-line" value="Download Certificate">
+
+                                    </div>
+									 <span class="output_message"></span>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
         </section>
 
-        
-        
 
 
         <!-- footer begin -->
         <footer class="style-2">
           <div class="container">
             <div class="row align-items-middle">
-              <div class="img-containger" ">
+              <div class="img-containger" >
                 <img src="images/Final Logo Circle.png" />
               </div>
 
@@ -262,7 +270,7 @@
                   >
                 </div>
               </div>
-              
+
               <div class="img-footer">
                 <div class="h6 padding10 pt0 pb0">
                   <div class="social-icons">
@@ -290,12 +298,12 @@
                 </div>
               </div>
 
-             
 
-              
+
+
 
               <div class="text-right">
-                
+
               </div>
             </div>
           </div>
@@ -306,6 +314,22 @@
       </div>
     </div>
 
+<style>
+.has-error{
+	margin-bottom:20px;
+}
+.has-error .form-control{
+	margin-bottom:0px !Important;
+}
+.has-error .error{
+    padding: 0px;
+    display: none;
+    color: #d9534f;
+    border: 0px !important;
+    font-size: 12px;
+
+}
+</style>
     <!-- Javascript Files
     ================================================== -->
     <script src="js/plugins.js"></script>
@@ -313,9 +337,42 @@
     <script src="js/validation.js"></script>
     <script src="js/countdown-custom.js"></script>
 	<script>
-		$( document ).ready(function() {
-			$('#forceDownload').trigger('click');
-		})
+	/**	$(document).ready(function() {
+			$('#contact_form').on('submit',function(){
+
+				// Add text 'loading...' right after clicking on the submit button.
+				$('.output_message').text('Loading...');
+
+				var form = $(this);
+				$.ajax({
+					url: form.attr('action'),
+					method: form.attr('method'),
+					data: form.serialize(),
+					success: function(data){
+						 //Convert the Byte Data to BLOB object.
+                    var blob = new Blob([data], { type: "application/octetstream" });
+
+                    //Check the Browser type and download the File.
+                    var isIE = false || !!document.documentMode;
+                    if (isIE) {
+                        window.navigator.msSaveBlob(blob, fileName);
+                    } else {
+                        var url = window.URL || window.webkitURL;
+                        link = url.createObjectURL(blob);
+                        var a = $("<a />");
+                        a.attr("download", fileName);
+                        a.attr("href", link);
+                        $("body").append(a);
+                        a[0].click();
+                        $("body").remove(a);
+                    }
+					}
+				});
+
+				// Prevents default submission of the form after clicking on the submit button.
+				return false;
+			});
+		});***/
 	</script>
   </body>
 </html>
