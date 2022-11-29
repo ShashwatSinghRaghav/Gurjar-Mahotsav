@@ -23,9 +23,9 @@
 			return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
 		}
 		if (isLocalhost())
-			$font = "C:\\xampp\\htdocs\\Gurjar-Mahotsav-main\\CALIBRIB.TTF";	
+			$font = "CALIBRIB.TTF";	
 		else
-			$font = "/home2/dhuntonq/example.com/Gurjar-Mahotsav-main\\CALIBRIB.TTF";
+			$font = realpath("CALIBRIB.TTF");
 
 
 		//header('Content-Type: image/png');
@@ -216,8 +216,8 @@
           </div>
           <?php 
 		  if(isset($_GET['PassID'])&& !empty($_GET['PassID'])){
-			echo '<a id="forceDownload" href="pass/'.$newFileName.'" download target="_blank"><img src="pass/'.$newFileName.'"  /></a>';
-			echo '<a href="pass/'.$newFileName.'" download  target="_blank" style="font-size:30px;text-align:center;margin-top:50px">DownLaod </a>';
+			echo '<a id="forceDownload" href="pass/'.$newFileName.'" download target="_blank"><img style="width:100%"; src="pass/'.$newFileName.'"  /></a>';
+			echo '<a href="pass/'.$newFileName.'" download  target="_blank" style="font-size:30px;text-align:center;margin-top:50px">Downlaod </a>';
 		  }	
 		  ?>
 		  
